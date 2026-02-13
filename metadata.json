@@ -1,0 +1,8 @@
+{
+  "name": "Real Public School Management System",
+  "description": "A comprehensive school management platform with dedicated portals for Admins, Teachers, Students, and Parents. Features include UID-based login, attendance tracking, fee management with PDF receipts, digital certificates, live class links, and AI-powered progress remarks.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
