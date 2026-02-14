@@ -26,6 +26,14 @@ const INITIAL_CONFIG: SchoolConfig = {
 };
 
 const INITIAL_CLASSES: Class[] = [
+  { id: 'CLASS-001', name: 'Grade 1', teacherId: '2' },
+  { id: 'CLASS-002', name: 'Grade 2', teacherId: '2' },
+  { id: 'CLASS-003', name: 'Grade 3', teacherId: '2' },
+  { id: 'CLASS-004', name: 'Grade 4', teacherId: '2' },
+  { id: 'CLASS-005', name: 'Grade 5', teacherId: '2' },
+  { id: 'CLASS-006', name: 'Grade 6', teacherId: '2' },
+  { id: 'CLASS-007', name: 'Grade 7', teacherId: '2' },
+  { id: 'CLASS-008', name: 'Grade 8', teacherId: '2' },
   { id: 'CLASS-101', name: 'Grade 10-A', teacherId: '2' },
   { id: 'CLASS-102', name: 'Grade 10-B', teacherId: '2' },
   { id: 'CLASS-103', name: 'Grade 11-A', teacherId: '4' },
@@ -33,8 +41,15 @@ const INITIAL_CLASSES: Class[] = [
 
 const INITIAL_USERS: User[] = [
   { id: '1', uid: 'ADM-001', role: UserRole.ADMIN, name: 'Admin User', email: 'admin@rps.edu', isBlocked: false, assignedClasses: [] },
-  { id: '2', uid: 'TCH-001', role: UserRole.TEACHER, name: 'John Smith', email: 'john@rps.edu', assignedClasses: ['CLASS-101', 'CLASS-102'], isBlocked: false },
-  { id: '3', uid: 'STD-001', role: UserRole.STUDENT, name: 'Alice Doe', email: 'alice@rps.edu', assignedClasses: ['CLASS-101'], isBlocked: false },
+  { id: '2', uid: 'TCH-001', role: UserRole.TEACHER, name: 'John Smith', email: 'john@rps.edu', assignedClasses: ['CLASS-001', 'CLASS-002', 'CLASS-003', 'CLASS-004', 'CLASS-005', 'CLASS-006', 'CLASS-007', 'CLASS-008', 'CLASS-101', 'CLASS-102'], isBlocked: false },
+  { id: 's1', uid: 'STD-001', role: UserRole.STUDENT, name: 'Aarav Kumar', email: 'aarav@rps.edu', assignedClasses: ['CLASS-001'], isBlocked: false },
+  { id: 's2', uid: 'STD-002', role: UserRole.STUDENT, name: 'Ananya Singh', email: 'ananya@rps.edu', assignedClasses: ['CLASS-002'], isBlocked: false },
+  { id: 's3', uid: 'STD-003', role: UserRole.STUDENT, name: 'Ishaan Sharma', email: 'ishaan@rps.edu', assignedClasses: ['CLASS-003'], isBlocked: false },
+  { id: 's4', uid: 'STD-004', role: UserRole.STUDENT, name: 'Saanvi Gupta', email: 'saanvi@rps.edu', assignedClasses: ['CLASS-004'], isBlocked: false },
+  { id: 's5', uid: 'STD-005', role: UserRole.STUDENT, name: 'Arjun Verma', email: 'arjun@rps.edu', assignedClasses: ['CLASS-005'], isBlocked: false },
+  { id: 's6', uid: 'STD-006', role: UserRole.STUDENT, name: 'Riya Patel', email: 'riya@rps.edu', assignedClasses: ['CLASS-006'], isBlocked: false },
+  { id: 's7', uid: 'STD-007', role: UserRole.STUDENT, name: 'Vivaan Reddy', email: 'vivaan@rps.edu', assignedClasses: ['CLASS-007'], isBlocked: false },
+  { id: 's8', uid: 'STD-008', role: UserRole.STUDENT, name: 'Diya Malhotra', email: 'diya@rps.edu', assignedClasses: ['CLASS-008'], isBlocked: false },
 ];
 
 export const dbService = {
@@ -67,7 +82,7 @@ export const dbService = {
   getFees: (): FeeRecord[] => {
     const data = localStorage.getItem(STORAGE_KEYS.FEES);
     return data ? JSON.parse(data) : [
-      { id: 'f1', studentId: '3', amount: 5000, status: 'PAID', receiptId: '778301380', months: ['April'] }
+      { id: 'f1', studentId: 's1', amount: 5000, status: 'PAID', receiptId: '778301380', months: ['April'] }
     ];
   },
   saveFees: (fees: FeeRecord[]) => localStorage.setItem(STORAGE_KEYS.FEES, JSON.stringify(fees)),
@@ -89,8 +104,7 @@ export const dbService = {
   getPerformance: (): PerformanceRecord[] => {
     const data = localStorage.getItem(STORAGE_KEYS.PERFORMANCE);
     return data ? JSON.parse(data) : [
-      { id: 'p1', studentId: '3', subject: 'Mathematics', score: 95, total: 100, grade: 'A+', term: 'First Term', aiRemarks: 'Alice shows exceptional analytical skills.' },
-      { id: 'p2', studentId: '3', subject: 'Physics', score: 88, total: 100, grade: 'A', term: 'First Term', aiRemarks: 'Solid performance in mechanics.' }
+      { id: 'p1', studentId: 's1', subject: 'Mathematics', score: 95, total: 100, grade: 'A+', term: 'First Term', aiRemarks: 'Student shows exceptional analytical skills.' },
     ];
   },
   savePerformance: (records: PerformanceRecord[]) => localStorage.setItem(STORAGE_KEYS.PERFORMANCE, JSON.stringify(records)),
